@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const logger = require("./loggerMiddleqware");
+const logger = require("./loggerMiddleware");
 
 app.use(express.json());
 app.use(cors());
@@ -57,7 +57,6 @@ app.delete("/api/notes/:id", (req, res) => {
   const id = Number(req.params.id);
   notes = notes.filter((note) => note.id != id);
   console.log(notes);
-  sdsdsds;
   res.status(204).end();
 });
 
@@ -87,7 +86,7 @@ app.use((req, res) => {
   });
 });
 
-const PORT = 3005;
+const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
