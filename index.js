@@ -72,7 +72,7 @@ app.post("/api/notes", (req, res) => {
   const maxId = Math.max(...ids);
   const newNote = {
     id: maxId + 1,
-    name: note.content,
+    content: note.content,
   };
 
   notes = [...notes, newNote];
